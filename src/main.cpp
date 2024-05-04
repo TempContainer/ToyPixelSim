@@ -4,7 +4,6 @@
 #include <algorithm>
 #include <iostream>
 #include <cstdlib>
-#include <format>
 
 constexpr int ScreenWidth = 1200, ScreenHeight = 900;
 constexpr int Width = 600, Height = 450;
@@ -263,10 +262,8 @@ void ProcessPaint(GLFWwindow *window)
     if(!IsMousePressed) return;
     double x, y;
     glfwGetCursorPos(window, &x, &y);
-    // std::cout << std::format("Mouse clicked at ({}, {})\n", x, y);
     Painter.x = x / Ratio;
     Painter.y = y / Ratio;
-    // std::cout << std::format("Painter at ({}, {})\n", Painter.x, Painter.y);
     for(int i = -PaintSize; i <= PaintSize; ++i)
         for(int j = -PaintSize; j <= PaintSize; ++j)
             if(int nx = Painter.x + i, ny = Painter.y + j;
